@@ -1,0 +1,29 @@
+!!! Strict
+%html
+  %head
+    %title Prod
+    %link{:href => '/css/reset.css', :type => 'text/css', :rel => 'stylesheet'}
+    %link{:href => '/css/form.css', :type => 'text/css', :rel => 'stylesheet'}
+    %link{:href => '/css/core.css', :type => 'text/css', :rel => 'stylesheet'}
+  %body
+    %h1 Prod: New Site
+    
+    %form.formtastic{:action => '/create', :method => 'post'}
+      %fieldset.inputs
+        %ol
+          %li.string
+            %label{:for => 'name'} Name
+            %input{:id => 'name', :name => 'name', :type => 'text'}
+          %li.string
+            %label{:for => 'repo'} Repository
+            %input{:id => 'repo', :name => 'repo', :type => 'text'}
+          %li.string
+            %label{:for => 'folder'} Folder
+            %input{:id => 'folder', :name => 'folder', :type => 'text'}
+      %fieldset.buttons
+        %ol
+          %li.commit
+            %input{:name => 'commit', :type => 'submit', :value => 'Create'}
+    
+    %p
+      %a{:href => '/'} Back

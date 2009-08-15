@@ -1,0 +1,22 @@
+!!! Strict
+%html
+  %head
+    %title Prod
+    %link{:href => '/css/reset.css', :type => 'text/css', :rel => 'stylesheet'}
+    %link{:href => '/css/core.css', :type => 'text/css', :rel => 'stylesheet'}
+  %body
+    %h1 Prod
+
+    - if @sites.empty?
+      %p
+        There are no sites set up just yet. Feel free to
+        %a{:href => '/new'} create one
+        though.
+    - else
+      %ul
+        - @sites.each do |site|
+          %li
+            %a{:href => "/edit/#{site.id}"}= site.name
+  
+      %p
+        %a{:href => '/new'} Add another site
