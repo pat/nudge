@@ -8,4 +8,18 @@ require 'prod'
 # set :app_file,    File.join(root_dir, 'prod.rb')
 # disable :run
 
+# HACK HACK HACK
+class NginxPassengerFix
+  def initialize(app)
+    @app = app
+  end
+
+  def call(env)
+    env["PATH_INFO"] = env["REQUEST_URI"].sub(/\?[^\?]*$/, "")
+    r = @app.call(env)
+  end
+end
+use NginxPassengerFix
+# END HACK HACK HACK
+
 run Sinatra::Application
