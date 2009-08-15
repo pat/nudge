@@ -43,4 +43,6 @@ post '/git' do
   Site.all(:name => push['repository']['name']).each do |site|
     site.deploy
   end
+  
+  'success'
 end
