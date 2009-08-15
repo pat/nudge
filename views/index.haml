@@ -1,11 +1,11 @@
 !!! Strict
 %html
   %head
-    %title Prod
+    %title nudge
     %link{:href => '/css/reset.css', :type => 'text/css', :rel => 'stylesheet'}
     %link{:href => '/css/core.css', :type => 'text/css', :rel => 'stylesheet'}
   %body
-    %h1 Prod
+    %h1 nudge
 
     - if @sites.empty?
       %p
@@ -13,6 +13,7 @@
         %a{:href => '/new'} create one
         though.
     - else
+      %h2 Sites
       %ul
         - @sites.each do |site|
           %li

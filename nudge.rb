@@ -6,7 +6,7 @@ require 'dm-core'
 
 # Setup Database
 local_directory = File.expand_path File.dirname(__FILE__)
-DataMapper.setup :default, "sqlite3:///#{local_directory}/db/prod.db"
+DataMapper.setup :default, "sqlite3:///#{local_directory}/db/nudge.db"
 
 # Local Library
 $:.unshift File.dirname(__FILE__) + '/lib'
