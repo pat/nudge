@@ -8,4 +8,4 @@ require 'prod'
 # set :app_file,    File.join(root_dir, 'prod.rb')
 # disable :run
 
-run Sinatra.application
+run Sinatra::Application
