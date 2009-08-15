@@ -40,7 +40,7 @@ end
 post '/git' do
   push = JSON.parse params[:payload]
   
-  Site.all(:name => push[:repository][:name]).each do |site|
+  Site.all(:name => push['repository']['name']).each do |site|
     site.deploy
   end
 end
