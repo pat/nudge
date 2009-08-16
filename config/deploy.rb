@@ -1,5 +1,9 @@
-set :application, "prod"
-set :repository,  "set your repository location here"
+set :application, 'nudge'
+set :repository,  'git@github.com:freelancing-god/nudge.git'
+set :user,        'nudge'
+set :branch,      'master'
+set :use_sudo,    false
+set :domain,      'nudge.domain.tld'
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
@@ -10,9 +14,9 @@ set :deploy_to, "/var/www/#{application}"
 # your SCM below:
 set :scm, :git
 
-role :app, "prod.freelancing-gods.com"
-role :web, "prod.freelancing-gods.com"
-role :db,  "prod.freelancing-gods.com", :primary => true
+role :app, domain
+role :web, domain
+role :db,  domain, :primary => true
 
 namespace :deploy do
   task :start, :roles => :app do
@@ -26,4 +30,12 @@ namespace :deploy do
   task :restart, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
   end
+end
+
+after 'deploy:setup' do
+  run "mkdir -p #{shared_path}/db"
+end
+
+after 'deploy:symlink' do
+  run "ln -nfs #{shared_path}/db #{release_path}/db"
 end
