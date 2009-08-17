@@ -21,7 +21,7 @@ h2. Usage
 
 It should all be pretty obvious once you load up Nudge on your server via the browser. Add sites, set their names (should be the same as the GitHub project name), repository clone URLs, and location on the server to host the files from.
 
-<p style="text-align: center"><img src="http://img.skitch.com/20090817-dp9g8jswnc9p1fi14drtgi41an.jpg" /></p>
+<img src="http://img.skitch.com/20090817-fgbhrjs8cqyth9mf1asnuure3g.jpg" />
 
 Then in GitHub, head to the Admin tab, then Service Hooks sub-tab, and add a post-commit hook to /git on your Nudge instance (eg: http://nudge.domain.tld/git). From that point on, when you push to your git repository, your static site will be automatically updated.
 
