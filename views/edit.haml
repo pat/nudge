@@ -14,12 +14,15 @@
           %li.string
             %label{:for => 'name'} Name
             %input{:id => 'name', :name => 'name', :type => 'text', :value => @site.name}
+            %p.inline-hints The name of the GitHub project.
           %li.string
             %label{:for => 'repo'} Repository
             %input{:id => 'repo', :name => 'repo', :type => 'text', :value => @site.repo}
+            %p.inline-hints The git URL to clone from.
           %li.string
             %label{:for => 'folder'} Folder
             %input{:id => 'folder', :name => 'folder', :type => 'text', :value => @site.folder}
+            %p.inline-hints The directory on the server to deploy to. Nudge will need permissions to this folder to deploy to it. It will try to create the folder if it doesn't already exist.
       %fieldset.buttons
         %ol
           %li.commit

@@ -1,0 +1,33 @@
+h1. nudge
+
+Nudge fills the gap between SFTP and GitHub pages - it auto-deploys static HTML sites that are hosted on GitHub, using post-commit hooks.
+
+Nudge itself is not a static website, but a small Sinatra application, that you host on your server, and manage these static sites from. It provides the dynamic hook that you can add to your git repository.
+
+h2. Required Gems
+
+* sinatra (>= 0.9.4)
+* dm-core (>= 0.9.11)
+* do_sqlite3 (>= 0.9.12)
+* haml-edge (>= 2.3.24)
+
+h2. Installing
+
+Clone this repository onto your local machine, modify @config/deploy.rb@ to taste, and then deploy it onto the server that's going to host your static sites.
+
+Because we're using Sinatra, you're probably going to see some errors in your deploy, because Capistrano is expecting a Rails application, but hopefully it should all go reasonably smoothly. Because we're using DataMapper and SQLite3, you don't need to worry about setting up a database or running migrations.
+
+h2. Suggestions
+
+* Put your Nudge instance behind some HTTP authentication. You don't want anybody hacking your static sites, right?
+* Nudge doesn't handle multiple system users. You'll want your static sites being managed by the same user. It's not perfect, and patches are welcome, but it does the job.
+
+h2. Usage
+
+It should all be pretty obvious once you load up Nudge on your server via the browser. Add sites, set their names (should be the same as the GitHub project name), repository clone URLs, and location on the server to host the files from.
+
+Then in GitHub, head to the Admin tab, then Service Hooks sub-tab, and add a post-commit hook to /git on your Nudge instance (eg: http://nudge.domain.tld/git). From that point on, when you push to your git repository, your static site will be automatically updated.
+
+h2. Remainders
+
+You will still need to set up Nginx/Apache to serve the static sites. It would be cool for Nudge to generate the partial config files for these servers - perhaps in the future it will.

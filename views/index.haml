@@ -5,8 +5,21 @@
     %link{:href => '/css/reset.css', :type => 'text/css', :rel => 'stylesheet'}
     %link{:href => '/css/core.css', :type => 'text/css', :rel => 'stylesheet'}
   %body
-    %h1 nudge
-
+    %h1 Nudge
+    
+    %p
+      Give your static sites a
+      %em nudge
+      when their GitHub repository is updated.
+      %strong Nudge
+      will automatically deploy the latest version of the site, given the
+      settings you provide.
+    
+    %p
+      The source of this project is available
+      %a{:href => 'http://github.com/freelancing-god/nudge'} on GitHub,
+      naturally.
+    
     - if @sites.empty?
       %p
         There are no sites set up just yet. Feel free to
