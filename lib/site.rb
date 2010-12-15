@@ -1,3 +1,5 @@
+require 'fileutils'
+
 class Site
   include DataMapper::Resource
   
